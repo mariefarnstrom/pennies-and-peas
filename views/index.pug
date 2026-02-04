@@ -1,0 +1,19 @@
+extends layout
+
+block layout-content
+  div.View
+    h1.Banner Pennies and Peas
+    div.Message
+      div.Title
+        h3 Get rich
+        h1 or die
+      span.Details trying!
+    div.NavButtons
+      a(href="/user")
+          div.NavButton Just dive in!
+    form(action="post")
+        label(for="income") Income:
+        input(type="text")
+        label(for="expenses") Expenses:
+        input(type="text")
+        button Calculate budget
