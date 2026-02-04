@@ -11,9 +11,11 @@ block layout-content
     div.NavButtons
       a(href="/user")
           div.NavButton Just dive in!
-    form(action="post")
-        label(for="income") Income:
-        input(type="text")
+    form(action="/incomes" method="POST")
+        label(for="incomes") Incomes:
+        input(type="number" name="income")
+        button(type="submit") Add income
+    form(action="/expenses" method="POST")
         label(for="expenses") Expenses:
-        input(type="text")
-        button Calculate budget
+        input(type="number" name="expense")
+        button(type="submit") Calculate budget

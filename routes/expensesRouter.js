@@ -6,18 +6,20 @@ const router = express.Router();
 
 router.post('/', (req, res) => {
     // POST data
-    const body = req.body;
-    expenses.push(body);
+    const expenseAmount = Number(req.body.expense);
+    if(!isNaN(expenseAmount)) {
+        expenses.push({ amount: expenseAmount });
+    }
 
-    console.log('Received POST /expenses with body:', body);
+    console.log('Received POST /expenses: ', expenseAmount);
 
     // send JSON response
-    res.status(200).json({
-        message: 'POST request received',
-        receivedData: body
-    });
+    // res.status(200).json({
+    //     message: 'POST request received',
+    //     receivedData: body
+    // });
 
-    // res.redirect('/summary');
+    res.redirect('/summary');
 });
 
 
