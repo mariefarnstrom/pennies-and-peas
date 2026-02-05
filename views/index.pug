@@ -16,6 +16,13 @@ block layout-content
         input(type="number" name="income")
         button(type="submit") Add income
     form(action="/expenses" method="POST")
-        label(for="expenses") Expenses:
-        input(type="number" name="expense")
+        h2 Expenses:
+        label(for="expenses") Housing:
+        input(type="number" name="expenses[housing]")
+        label(for="expenses") Transportation:
+        input(type="number" name="expenses[transportation]")
+        label(for="expenses") Food:
+        input(type="number" name="expenses[food]")
+        label(for="expenses") Other:
+        input(type="number" name="expenses[other]")
         button(type="submit") Calculate budget

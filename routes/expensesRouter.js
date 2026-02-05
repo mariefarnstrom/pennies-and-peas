@@ -6,12 +6,19 @@ const router = express.Router();
 
 router.post('/', (req, res) => {
     // POST data
-    const expenseAmount = Number(req.body.expense);
-    if(!isNaN(expenseAmount)) {
-        expenses.push({ amount: expenseAmount });
+    // const expenseAmount = Number(req.body.expenses);
+    const allExpenses = req.body.expenses;
+    for (var key in allExpenses) {
+        const expenseAmount = Number(allExpenses[key])
+
+        if(!isNaN(expenseAmount)) {
+            expenses.push({ category: key, amount: expenseAmount });
+        }
     }
 
-    console.log('Received POST /expenses: ', expenseAmount);
+    
+
+    console.log('Received POST /expenses: ', allExpenses);
 
     // send JSON response
     // res.status(200).json({
