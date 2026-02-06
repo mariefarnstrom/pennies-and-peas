@@ -18,15 +18,19 @@ block layout-content
     script(src="https://cdn.jsdelivr.net/npm/chart.js")
 
     script.
+        const categories = !{JSON.stringify(categories)};
+        const numbers = !{JSON.stringify(numbers)};
+        
         const ctx = document.getElementById('expensesChart');
 
         new Chart(ctx, {
             type: 'pie',
             data: {
-            labels: ['Housing', 'Loan', 'Utilities', 'Insurance', 'Transportation', 'Groceries', 'Clothing', 'Media / Subscriptions', 'Hobbies / Sports', 'Retirement savings', 'Buffer', 'Other savings'],
+            labels: categories,
             datasets: [{
-                data: [12, 19, 3, 5, 2, 3],
-                borderWidth: 1
+                data: numbers,
+                borderWidth: 1,
+                backgroundColor: ["#e8c2f4", "#affeb8", "#e2e063", "#0759a0", "#539bcf", "#B10DC9", "#d3d19f", "#053360", "#6adada", "#5fc38a", "#85144b", "#a16994", "#286549", "#222121", "#AAAAAA"]
             }]
             },
         });
