@@ -1,0 +1,50 @@
+{
+  "incomes": [
+    {
+      "id": 1770382272739,
+      "amount": 5000
+    }
+  ],
+  "expenses": [
+    {
+      "id": 1770332758722,
+      "category": "housing",
+      "amount": 4
+    },
+    {
+      "id": 1770332758723,
+      "category": "transportation",
+      "amount": 4
+    },
+    {
+      "id": 1770332758723,
+      "category": "food",
+      "amount": 4
+    },
+    {
+      "id": 1770332758723,
+      "category": "other",
+      "amount": 4
+    },
+    {
+      "id": 1770382266025,
+      "category": "housing",
+      "amount": 400
+    },
+    {
+      "id": 1770382266027,
+      "category": "transportation",
+      "amount": 4
+    },
+    {
+      "id": 1770382266027,
+      "category": "food",
+      "amount": 4
+    },
+    {
+      "id": 1770382266027,
+      "category": "other",
+      "amount": 4
+    }
+  ]
+}

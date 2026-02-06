@@ -1,25 +1,55 @@
 import express from 'express';
-import { incomes } from '../data/store.js';
+import { addIncome } from '../utils/budgetUtils.js';
 
 const router = express.Router();
 
-
 router.post('/', (req, res) => {
-    // POST data
-    const incomeAmount = Number(req.body.income);
-    if(!isNaN(incomeAmount)) {
-        incomes.push({ amount: incomeAmount });
-    }
+  const incomeAmount = Number(req.body.income);
 
-    console.log('Received POST /income: ', incomeAmount);
+  if (!isNaN(incomeAmount)) {
+    const now = new Date();
+    const year = now.getFullYear();
+    const month = String(now.getMonth() + 1).padStart(2, '0');
 
-    // send JSON response
-    // res.status(200).json({
-    //     message: 'POST request received',
-    //     receivedData: body
-    // });
+    addIncome(year, month, {
+      amount: incomeAmount
+    });
+  }
 
-    // res.redirect('/summary');
+  console.log('Received POST /income:', incomeAmount);
+
+  res.redirect('/summary');
 });
 
-export default router
+export default router;
+
+
+
+
+
+
+// import express from 'express';
+// import { incomes } from '../data/store.js';
+
+// const router = express.Router();
+
+
+// router.post('/', (req, res) => {
+//     // POST data
+//     const incomeAmount = Number(req.body.income);
+//     if(!isNaN(incomeAmount)) {
+//         incomes.push({ amount: incomeAmount });
+//     }
+
+//     console.log('Received POST /income: ', incomeAmount);
+
+//     // send JSON response
+//     // res.status(200).json({
+//     //     message: 'POST request received',
+//     //     receivedData: body
+//     // });
+
+//     // res.redirect('/summary');
+// });
+
+// export default router

@@ -1,2 +1,2 @@
-export const incomes = [];
-export const expenses = [];
+// export const incomes = [];
+// export const expenses = [];
