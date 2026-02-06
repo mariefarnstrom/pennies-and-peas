@@ -12,17 +12,45 @@ block layout-content
       a(href="/user")
           div.NavButton Just dive in!
     form(action="/incomes" method="POST")
-        label(for="incomes") Incomes:
-        input(type="number" name="income")
+        label(for="incomes") Salary:
+        input(type="number" name="incomes[salary]")
+        label(for="incomes") Benefits:
+        input(type="number" name="incomes[benefits]")
+        label(for="incomes") Other income:
+        input(type="number" name="incomes[other]")
         button(type="submit") Add income
+
     form(action="/expenses" method="POST")
-        h2 Expenses:
-        label(for="expenses") Housing:
+        h2 Expenses
+        h3 Fixed costs:
+        label(for="expenses") Rent / Housing:
         input(type="number" name="expenses[housing]")
+        label(for="expenses") Loan payments:
+        input(type="number" name="expenses[loans]")
+        label(for="expenses") Utilities:
+        input(type="number" name="expenses[utilities]")
+        label(for="expenses") Insurance:
+        input(type="number" name="expenses[insurance]")
         label(for="expenses") Transportation:
         input(type="number" name="expenses[transportation]")
-        label(for="expenses") Food:
-        input(type="number" name="expenses[food]")
-        label(for="expenses") Other:
+
+        h3 Variable costs:
+        label(for="expenses") Groceries:
+        input(type="number" name="expenses[groceries]")
+        label(for="expenses") Clothing:
+        input(type="number" name="expenses[clothing]")
+        label(for="expenses") Subscriptions / Media:
+        input(type="number" name="expenses[media]")
+        label(for="expenses") Hobbies / Sports:
+        input(type="number" name="expenses[hobbies]")
+
+        h3 Savings:
+        label(for="expenses") Retirement savings:
+        input(type="number" name="expenses[retirement]")
+        label(for="expenses") Buffert:
+        input(type="number" name="expenses[buffert]")
+        label(for="expenses") Other savings:
         input(type="number" name="expenses[other]")
+        
+
         button(type="submit") Calculate budget
