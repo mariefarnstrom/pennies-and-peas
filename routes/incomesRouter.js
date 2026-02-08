@@ -18,7 +18,7 @@ router.post('/', (req, res) => {
 
   console.log('Received POST /income:', incomeAmount);
 
-  res.redirect('/summary');
+  return res.redirect('/summary');
 });
 
 export default router;

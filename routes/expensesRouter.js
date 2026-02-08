@@ -20,7 +20,7 @@ router.post('/', (req, res) => {
     }
   }
 
-  res.redirect('/summary');
+  return res.redirect('/summary');
 });
 
 
