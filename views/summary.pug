@@ -13,26 +13,32 @@ block layout-content
           div.NavButton
 
     div
-    canvas#expensesChart
+      canvas#expensesChart
 
-    script(src="https://cdn.jsdelivr.net/npm/chart.js")
+      script(src="https://cdn.jsdelivr.net/npm/chart.js")
 
-    script.
-        const categories = !{JSON.stringify(categories)};
-        const numbers = !{JSON.stringify(numbers)};
-        
-        const ctx = document.getElementById('expensesChart');
+      script.
+          const categories = !{JSON.stringify(categories)};
+          const numbers = !{JSON.stringify(numbers)};
+          
+          const ctx = document.getElementById('expensesChart');
 
-        new Chart(ctx, {
-            type: 'pie',
-            data: {
-            labels: categories,
-            datasets: [{
-                data: numbers,
-                borderWidth: 1,
-                backgroundColor: ["#e8c2f4", "#affeb8", "#e2e063", "#0759a0", "#539bcf", "#B10DC9", "#d3d19f", "#053360", "#6adada", "#5fc38a", "#85144b", "#a16994", "#286549", "#222121", "#AAAAAA"]
-            }]
-            },
-        });
+          new Chart(ctx, {
+              type: 'pie',
+              data: {
+              labels: categories,
+              datasets: [{
+                  data: numbers,
+                  borderWidth: 1,
+                  backgroundColor: ["#e8c2f4", "#affeb8", "#e2e063", "#0759a0", "#539bcf", "#B10DC9", "#d3d19f", "#053360", "#6adada", "#5fc38a", "#85144b", "#a16994", "#286549", "#222121", "#AAAAAA"]
+              }]
+              },
+          });
+      
+    div.Advice
+      h3 Advice
+        ul
+          each advice in adviceList
+            li= advice.message
 
     

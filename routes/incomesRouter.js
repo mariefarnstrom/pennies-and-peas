@@ -24,7 +24,7 @@ router.post('/', (req, res) => {
 
   setIncomes(year, month, incomes);
 
-  res.redirect('/summary');
+  return res.status(204).end();
 });
 
 export default router;

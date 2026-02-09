@@ -9,10 +9,9 @@ router.get('/', (req, res) => {
   const year = now.getFullYear();
   const month = String(now.getMonth() + 1).padStart(2, '0');
 
-  const { totalIncome, totalExpenses, disposable, categories, numbers } = getSummary(year, month);
+  const { totalIncome, totalExpenses, disposable, categories, numbers, adviceList } = getSummary(year, month);
 
-
-  res.render('summary', { totalIncome, totalExpenses, disposable, categories, numbers });
+  return res.render('summary', { totalIncome, totalExpenses, disposable, categories, numbers, adviceList });
 });
 
 router.get('/:year/:month', (req, res) => {
