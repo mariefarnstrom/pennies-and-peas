@@ -15,6 +15,19 @@ router.get('/', (req, res) => {
   res.render('summary', { totalIncome, totalExpenses, disposable, categories, numbers });
 });
 
+router.get('/:year/:month', (req, res) => {
+  const { year, month } = req.params;
+
+  const summary = getSummary(year, month);
+
+  res.render('summary', {
+    ...summary,
+    year,
+    month
+  });
+});
+
+
 
 export default router;
 

@@ -1,27 +1,34 @@
 import express from 'express';
-import { addIncome } from '../utils/budgetUtils.js';
+import { setIncomes } from '../utils/budgetUtils.js';
 
 const router = express.Router();
 
 router.post('/', (req, res) => {
-  const incomeAmount = Number(req.body.income);
+  const allIncomes = req.body.incomes;
 
-  if (!isNaN(incomeAmount)) {
-    const now = new Date();
-    const year = now.getFullYear();
-    const month = String(now.getMonth() + 1).padStart(2, '0');
+  const now = new Date();
+  const year = now.getFullYear();
+  const month = String(now.getMonth() + 1).padStart(2, '0');
 
-    addIncome(year, month, {
-      amount: incomeAmount
-    });
+  const incomes = [];
+
+  for (const key in allIncomes) {
+    const amount = Number(allIncomes[key]);
+    if (!isNaN(amount)) {
+      incomes.push({
+        source: key,
+        amount
+      });
+    }
   }
 
-  console.log('Received POST /income:', incomeAmount);
+  setIncomes(year, month, incomes);
 
   res.redirect('/summary');
 });
 
 export default router;
+
 
 
 
