@@ -1,8 +1,81 @@
 {
   "incomes": [
-
+    {
+      "id": 1770643213282.02,
+      "source": "salary",
+      "amount": 50000
+    },
+    {
+      "id": 1770643213282.7983,
+      "source": "benefits",
+      "amount": 0
+    },
+    {
+      "id": 1770643213282.7026,
+      "source": "other",
+      "amount": 0
+    }
   ],
   "expenses": [
-    
+    {
+      "id": 1770643086400.1785,
+      "category": "housing",
+      "amount": 6000
+    },
+    {
+      "id": 1770643086400.198,
+      "category": "loans",
+      "amount": 6
+    },
+    {
+      "id": 1770643086400.0032,
+      "category": "utilities",
+      "amount": 6
+    },
+    {
+      "id": 1770643086400.1711,
+      "category": "insurance",
+      "amount": 6
+    },
+    {
+      "id": 1770643086400.576,
+      "category": "transportation",
+      "amount": 6
+    },
+    {
+      "id": 1770643086400.9124,
+      "category": "groceries",
+      "amount": 6
+    },
+    {
+      "id": 1770643086400.446,
+      "category": "clothing",
+      "amount": 6
+    },
+    {
+      "id": 1770643086400.8618,
+      "category": "media",
+      "amount": 6
+    },
+    {
+      "id": 1770643086400.948,
+      "category": "hobbies",
+      "amount": 6
+    },
+    {
+      "id": 1770643086400.9565,
+      "category": "retirement",
+      "amount": 6
+    },
+    {
+      "id": 1770643086400.5254,
+      "category": "buffert",
+      "amount": 6
+    },
+    {
+      "id": 1770643086400.845,
+      "category": "other",
+      "amount": 6
+    }
   ]
 }

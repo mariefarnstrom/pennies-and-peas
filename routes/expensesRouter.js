@@ -1,5 +1,5 @@
 import express from 'express';
-import { addExpense } from '../utils/budgetUtils.js';
+import { setExpenses } from '../utils/budgetUtils.js';
 
 const router = express.Router();
 
@@ -10,17 +10,21 @@ router.post('/', (req, res) => {
   const year = now.getFullYear();
   const month = String(now.getMonth() + 1).padStart(2, '0');
 
+  const expenses = [];
+
   for (const key in allExpenses) {
     const amount = Number(allExpenses[key]);
     if (!isNaN(amount)) {
-      addExpense(year, month, {
+      expenses.push({
         category: key,
         amount
       });
     }
   }
 
-  return res.redirect('/summary');
+  setExpenses(year, month, expenses);
+
+  res.redirect('/summary');
 });
 
 
