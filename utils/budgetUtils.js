@@ -169,7 +169,12 @@ function getBudgetNumbers(incomeLevel) {
 
 function getBudgetProposal(totalIncome){
   const incomeLevel = getIncomeLevel(totalIncome);
-  const budget = getBudgetNumbers(incomeLevel);
+  const percentageBudget = getBudgetNumbers(incomeLevel);
+  const budget = {};
+
+  for (const category in percentageBudget) {
+    budget[category] = Math.round((percentageBudget[category] / 100) * totalIncome);
+  }
   return budget;
 }
 
