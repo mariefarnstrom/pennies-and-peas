@@ -1,261 +1,82 @@
 {
   "incomes": [
     {
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-      "id": 1770720169016.9763,
+      "id": 1770724017629.904,
       "source": "salary",
-      "amount": 0
+      "amount": 8000
     },
     {
-      "id": 1770720169016.155,
+      "id": 1770724017629.0825,
       "source": "benefits",
-      "amount": 7000
+      "amount": 600
     },
     {
-      "id": 1770720169016.4854,
-=======
-      "id": 1770720266095.0945,
-      "source": "salary",
-      "amount": 8000
-    },
-    {
-=======
-      "id": 1770720266095.0945,
-      "source": "salary",
-      "amount": 8000
-    },
-    {
->>>>>>> Stashed changes
-=======
-      "id": 1770720266095.0945,
-      "source": "salary",
-      "amount": 8000
-    },
-    {
->>>>>>> Stashed changes
-      "id": 1770720266095.3467,
-      "source": "benefits",
-      "amount": 0
-    },
-    {
-      "id": 1770720266095.4912,
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
+      "id": 1770724017629.8586,
       "source": "other",
-      "amount": 0
+      "amount": 700
     }
   ],
   "expenses": [
     {
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-      "id": 1770720208966.1562,
+      "id": 1770724532759.8845,
       "category": "housing",
-      "amount": 4000
+      "amount": 6000
     },
     {
-      "id": 1770720208966.4314,
-=======
-      "id": 1770720540434.0737,
-      "category": "housing",
-      "amount": 0
-    },
-    {
-      "id": 1770720540434.6113,
->>>>>>> Stashed changes
-=======
-      "id": 1770720540434.0737,
-      "category": "housing",
-      "amount": 0
-    },
-    {
-      "id": 1770720540434.6113,
->>>>>>> Stashed changes
-=======
-      "id": 1770720540434.0737,
-      "category": "housing",
-      "amount": 0
-    },
-    {
-      "id": 1770720540434.6113,
->>>>>>> Stashed changes
+      "id": 1770724532759.3057,
       "category": "loans",
-      "amount": 0
+      "amount": 8
     },
     {
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-      "id": 1770720208966.8816,
-=======
-      "id": 1770720540434.1602,
->>>>>>> Stashed changes
-=======
-      "id": 1770720540434.1602,
->>>>>>> Stashed changes
-=======
-      "id": 1770720540434.1602,
->>>>>>> Stashed changes
+      "id": 1770724532759.3176,
       "category": "utilities",
-      "amount": 0
+      "amount": 8888
     },
     {
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-      "id": 1770720208966.9985,
-=======
-      "id": 1770720540434.3945,
->>>>>>> Stashed changes
-=======
-      "id": 1770720540434.3945,
->>>>>>> Stashed changes
-=======
-      "id": 1770720540434.3945,
->>>>>>> Stashed changes
+      "id": 1770724532759.8318,
       "category": "insurance",
-      "amount": 0
+      "amount": 8
     },
     {
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-      "id": 1770720208966.2263,
-=======
-      "id": 1770720540434.9302,
->>>>>>> Stashed changes
-=======
-      "id": 1770720540434.9302,
->>>>>>> Stashed changes
-=======
-      "id": 1770720540434.9302,
->>>>>>> Stashed changes
+      "id": 1770724532759.8867,
       "category": "transportation",
-      "amount": 0
+      "amount": 8
     },
     {
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-      "id": 1770720208966.5818,
-=======
-      "id": 1770720540434.763,
->>>>>>> Stashed changes
-=======
-      "id": 1770720540434.763,
->>>>>>> Stashed changes
-=======
-      "id": 1770720540434.763,
->>>>>>> Stashed changes
+      "id": 1770724532759.4243,
       "category": "groceries",
-      "amount": 0
+      "amount": 8
     },
     {
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-      "id": 1770720208966.6846,
-=======
-      "id": 1770720540434.4392,
->>>>>>> Stashed changes
-=======
-      "id": 1770720540434.4392,
->>>>>>> Stashed changes
-=======
-      "id": 1770720540434.4392,
->>>>>>> Stashed changes
+      "id": 1770724532759.0642,
       "category": "clothing",
-      "amount": 0
+      "amount": 8
     },
     {
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-      "id": 1770720208966.2783,
-=======
-      "id": 1770720540434.4836,
->>>>>>> Stashed changes
-=======
-      "id": 1770720540434.4836,
->>>>>>> Stashed changes
-=======
-      "id": 1770720540434.4836,
->>>>>>> Stashed changes
+      "id": 1770724532759.412,
       "category": "media",
-      "amount": 0
+      "amount": 8
     },
     {
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-      "id": 1770720208966.6677,
-=======
-      "id": 1770720540434.0903,
->>>>>>> Stashed changes
-=======
-      "id": 1770720540434.0903,
->>>>>>> Stashed changes
-=======
-      "id": 1770720540434.0903,
->>>>>>> Stashed changes
+      "id": 1770724532759.4595,
       "category": "hobbies",
-      "amount": 0
+      "amount": 8
     },
     {
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-      "id": 1770720208966.2388,
-=======
-      "id": 1770720540434.6975,
->>>>>>> Stashed changes
-=======
-      "id": 1770720540434.6975,
->>>>>>> Stashed changes
-=======
-      "id": 1770720540434.6975,
->>>>>>> Stashed changes
+      "id": 1770724532759.0295,
       "category": "retirement",
-      "amount": 0
+      "amount": 8
     },
     {
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-      "id": 1770720208966.904,
+      "id": 1770724532759.1858,
       "category": "buffer",
-      "amount": 0
+      "amount": 8
     },
     {
-      "id": 1770720208966.097,
-=======
-=======
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
-      "id": 1770720540434.065,
-      "category": "buffert",
-      "amount": 0
-    },
-    {
-      "id": 1770720540434.0173,
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
+      "id": 1770724532759.7693,
       "category": "other",
-      "amount": 0
+      "amount": 8
     }
-  ]
+  ],
+  "corrupted": true
 }

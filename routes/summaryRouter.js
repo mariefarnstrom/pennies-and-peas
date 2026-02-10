@@ -1,32 +1,14 @@
 import express from 'express';
 import { getSummary, getAvailableMonths } from '../utils/budgetUtils.js';
 
-
 const router = express.Router();
 
-/* nuvarande/aktuell månad */
+/* aktuell månad */
 router.get('/', (req, res) => {
   const now = new Date();
   const year = String(now.getFullYear());
   const month = String(now.getMonth() + 1).padStart(2, '0');
 
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-  const { totalIncome, totalExpenses, disposable, categories, numbers, adviceList } = getSummary(year, month);
-
-  return res.render('summary', { totalIncome, totalExpenses, disposable, categories, numbers, adviceList });
-});
-
-router.get('/:year/:month', (req, res) => {
-  const { year, month } = req.params;
-
-=======
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
   const summary = getSummary(year, month);
   const months = getAvailableMonths();
 
@@ -54,6 +36,7 @@ router.get('/:year/:month', (req, res) => {
 });
 
 export default router;
+
 
 
 // router.get('/', (req, res) => {
