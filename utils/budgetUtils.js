@@ -277,5 +277,48 @@ export function getAvailableMonths() {
     );
 }
 
+export function updateExpenses(year, month, newExpenses) {
+  const data = loadMonth(year, month);
+
+  for (const newItem of newExpenses) {
+    const existing = data.expenses.find(
+      e => e.category === newItem.category
+    );
+
+    if (existing) {
+      existing.amount = newItem.amount; // uppdatera
+    } else {
+      data.expenses.push({
+        id: Date.now() + Math.random(),
+        ...newItem
+      });
+    }
+  }
+
+  saveMonth(year, month, data);
+}
+export function updateIncomes(year, month, newIncomes) {
+  const data = loadMonth(year, month);
+
+  for (const item of newIncomes) {
+    const existing = data.incomes.find(
+      i => i.source === item.source
+    );
+
+    if (existing) {
+      existing.amount = item.amount;
+    } else {
+      data.incomes.push({
+        id: Date.now() + Math.random(),
+        ...item
+      });
+    }
+  }
+
+  saveMonth(year, month, data);
+}
+
+
+
 
 

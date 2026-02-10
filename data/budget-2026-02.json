@@ -3,12 +3,12 @@
     {
       "id": 1770724017629.904,
       "source": "salary",
-      "amount": 8000
+      "amount": 6000
     },
     {
       "id": 1770724017629.0825,
       "source": "benefits",
-      "amount": 600
+      "amount": 60
     },
     {
       "id": 1770724017629.8586,
@@ -20,62 +20,62 @@
     {
       "id": 1770724532759.8845,
       "category": "housing",
-      "amount": 6000
+      "amount": 800
     },
     {
       "id": 1770724532759.3057,
       "category": "loans",
-      "amount": 8
+      "amount": 0
     },
     {
       "id": 1770724532759.3176,
       "category": "utilities",
-      "amount": 8888
+      "amount": 0
     },
     {
       "id": 1770724532759.8318,
       "category": "insurance",
-      "amount": 8
+      "amount": 0
     },
     {
       "id": 1770724532759.8867,
       "category": "transportation",
-      "amount": 8
+      "amount": 0
     },
     {
       "id": 1770724532759.4243,
       "category": "groceries",
-      "amount": 8
+      "amount": 0
     },
     {
       "id": 1770724532759.0642,
       "category": "clothing",
-      "amount": 8
+      "amount": 0
     },
     {
       "id": 1770724532759.412,
       "category": "media",
-      "amount": 8
+      "amount": 0
     },
     {
       "id": 1770724532759.4595,
       "category": "hobbies",
-      "amount": 8
+      "amount": 0
     },
     {
       "id": 1770724532759.0295,
       "category": "retirement",
-      "amount": 8
+      "amount": 0
     },
     {
       "id": 1770724532759.1858,
       "category": "buffer",
-      "amount": 8
+      "amount": 0
     },
     {
       "id": 1770724532759.7693,
       "category": "other",
-      "amount": 8
+      "amount": 800
     }
   ],
   "corrupted": true

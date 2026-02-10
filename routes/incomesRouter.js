@@ -1,5 +1,5 @@
 import express from 'express';
-import { setIncomes } from '../utils/budgetUtils.js';
+import { updateIncomes } from '../utils/budgetUtils.js';
 
 const router = express.Router();
 
@@ -10,19 +10,19 @@ router.post('/', (req, res) => {
   const year = now.getFullYear();
   const month = String(now.getMonth() + 1).padStart(2, '0');
 
-  const incomes = [];
+  const updates = [];
 
   for (const key in allIncomes) {
     const amount = Number(allIncomes[key]);
     if (!isNaN(amount)) {
-      incomes.push({
+      updates.push({
         source: key,
         amount
       });
     }
   }
 
-  setIncomes(year, month, incomes);
+  updateIncomes(year, month, updates);
 
   return res.status(204).end();
 });
