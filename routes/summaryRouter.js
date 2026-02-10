@@ -12,6 +12,7 @@ router.get('/', (req, res) => {
 
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
   const { totalIncome, totalExpenses, disposable, categories, numbers, adviceList } = getSummary(year, month);
 
   return res.render('summary', { totalIncome, totalExpenses, disposable, categories, numbers, adviceList });
@@ -20,6 +21,8 @@ router.get('/', (req, res) => {
 router.get('/:year/:month', (req, res) => {
   const { year, month } = req.params;
 
+=======
+>>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
 =======

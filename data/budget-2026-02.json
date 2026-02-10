@@ -3,6 +3,7 @@
     {
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
       "id": 1770720169016.9763,
       "source": "salary",
       "amount": 0
@@ -27,6 +28,13 @@
     },
     {
 >>>>>>> Stashed changes
+=======
+      "id": 1770720266095.0945,
+      "source": "salary",
+      "amount": 8000
+    },
+    {
+>>>>>>> Stashed changes
       "id": 1770720266095.3467,
       "source": "benefits",
       "amount": 0
@@ -34,6 +42,9 @@
     {
       "id": 1770720266095.4912,
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
@@ -43,6 +54,7 @@
   ],
   "expenses": [
     {
+<<<<<<< Updated upstream
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
       "id": 1770720208966.1562,
@@ -67,13 +79,25 @@
     {
       "id": 1770720540434.6113,
 >>>>>>> Stashed changes
+=======
+      "id": 1770720540434.0737,
+      "category": "housing",
+      "amount": 0
+    },
+    {
+      "id": 1770720540434.6113,
+>>>>>>> Stashed changes
       "category": "loans",
       "amount": 0
     },
     {
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
       "id": 1770720208966.8816,
+=======
+      "id": 1770720540434.1602,
+>>>>>>> Stashed changes
 =======
       "id": 1770720540434.1602,
 >>>>>>> Stashed changes
@@ -86,7 +110,11 @@
     {
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
       "id": 1770720208966.9985,
+=======
+      "id": 1770720540434.3945,
+>>>>>>> Stashed changes
 =======
       "id": 1770720540434.3945,
 >>>>>>> Stashed changes
@@ -99,7 +127,11 @@
     {
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
       "id": 1770720208966.2263,
+=======
+      "id": 1770720540434.9302,
+>>>>>>> Stashed changes
 =======
       "id": 1770720540434.9302,
 >>>>>>> Stashed changes
@@ -112,7 +144,11 @@
     {
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
       "id": 1770720208966.5818,
+=======
+      "id": 1770720540434.763,
+>>>>>>> Stashed changes
 =======
       "id": 1770720540434.763,
 >>>>>>> Stashed changes
@@ -125,7 +161,11 @@
     {
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
       "id": 1770720208966.6846,
+=======
+      "id": 1770720540434.4392,
+>>>>>>> Stashed changes
 =======
       "id": 1770720540434.4392,
 >>>>>>> Stashed changes
@@ -138,7 +178,11 @@
     {
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
       "id": 1770720208966.2783,
+=======
+      "id": 1770720540434.4836,
+>>>>>>> Stashed changes
 =======
       "id": 1770720540434.4836,
 >>>>>>> Stashed changes
@@ -151,7 +195,11 @@
     {
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
       "id": 1770720208966.6677,
+=======
+      "id": 1770720540434.0903,
+>>>>>>> Stashed changes
 =======
       "id": 1770720540434.0903,
 >>>>>>> Stashed changes
@@ -164,7 +212,11 @@
     {
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
       "id": 1770720208966.2388,
+=======
+      "id": 1770720540434.6975,
+>>>>>>> Stashed changes
 =======
       "id": 1770720540434.6975,
 >>>>>>> Stashed changes
@@ -177,6 +229,7 @@
     {
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
       "id": 1770720208966.904,
       "category": "buffer",
       "amount": 0
@@ -186,6 +239,8 @@
 =======
 =======
 >>>>>>> Stashed changes
+=======
+>>>>>>> Stashed changes
       "id": 1770720540434.065,
       "category": "buffert",
       "amount": 0
@@ -193,6 +248,9 @@
     {
       "id": 1770720540434.0173,
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
