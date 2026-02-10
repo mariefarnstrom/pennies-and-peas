@@ -1,81 +1,81 @@
 {
   "incomes": [
     {
-      "id": 1770643213282.02,
+      "id": 1770720169016.9763,
       "source": "salary",
-      "amount": 50000
-    },
-    {
-      "id": 1770643213282.7983,
-      "source": "benefits",
       "amount": 0
     },
     {
-      "id": 1770643213282.7026,
+      "id": 1770720169016.155,
+      "source": "benefits",
+      "amount": 7000
+    },
+    {
+      "id": 1770720169016.4854,
       "source": "other",
       "amount": 0
     }
   ],
   "expenses": [
     {
-      "id": 1770643086400.1785,
+      "id": 1770720208966.1562,
       "category": "housing",
-      "amount": 6000
+      "amount": 4000
     },
     {
-      "id": 1770643086400.198,
+      "id": 1770720208966.4314,
       "category": "loans",
-      "amount": 6
+      "amount": 0
     },
     {
-      "id": 1770643086400.0032,
+      "id": 1770720208966.8816,
       "category": "utilities",
-      "amount": 6
+      "amount": 0
     },
     {
-      "id": 1770643086400.1711,
+      "id": 1770720208966.9985,
       "category": "insurance",
-      "amount": 6
+      "amount": 0
     },
     {
-      "id": 1770643086400.576,
+      "id": 1770720208966.2263,
       "category": "transportation",
-      "amount": 6
+      "amount": 0
     },
     {
-      "id": 1770643086400.9124,
+      "id": 1770720208966.5818,
       "category": "groceries",
-      "amount": 6
+      "amount": 0
     },
     {
-      "id": 1770643086400.446,
+      "id": 1770720208966.6846,
       "category": "clothing",
-      "amount": 6
+      "amount": 0
     },
     {
-      "id": 1770643086400.8618,
+      "id": 1770720208966.2783,
       "category": "media",
-      "amount": 6
+      "amount": 0
     },
     {
-      "id": 1770643086400.948,
+      "id": 1770720208966.6677,
       "category": "hobbies",
-      "amount": 6
+      "amount": 0
     },
     {
-      "id": 1770643086400.9565,
+      "id": 1770720208966.2388,
       "category": "retirement",
-      "amount": 6
+      "amount": 0
     },
     {
-      "id": 1770643086400.5254,
-      "category": "buffert",
-      "amount": 6
+      "id": 1770720208966.904,
+      "category": "buffer",
+      "amount": 0
     },
     {
-      "id": 1770643086400.845,
+      "id": 1770720208966.097,
       "category": "other",
-      "amount": 6
+      "amount": 0
     }
   ]
 }

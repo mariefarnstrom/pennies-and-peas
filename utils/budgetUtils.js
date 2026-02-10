@@ -75,6 +75,95 @@ const recommendedPercentages = {
   other: 5
 };
 
+const highIncomeBudget = {
+  housing: 32,
+  loans: 8,
+  utilities: 6,
+  insurance: 4,
+  transportation: 5,
+  groceries: 12,
+  clothing: 4,
+  media: 3,
+  hobbies: 6,
+  retirement: 10,
+  buffer: 6,
+  other: 4
+};
+
+const mediumIncomeBudget = {
+  housing: 38,
+  loans: 9,
+  utilities: 7,
+  insurance: 5,
+  transportation: 6,
+  groceries: 14,
+  clothing: 4,
+  media: 2,
+  hobbies: 5,
+  retirement: 4,
+  buffer: 4,
+  other: 2
+};
+
+const lowIncomeBudget = {
+  housing: 40,
+  loans: 10,
+  utilities: 8,
+  insurance: 6,
+  transportation: 6,
+  groceries: 15,
+  clothing: 4,
+  media: 1,
+  hobbies: 5,
+  retirement: 1,
+  buffer: 3,
+  other: 1
+}
+
+const veryLowIncomeBudget = {
+  housing: 45,
+  loans: 0,
+  utilities: 8,
+  insurance: 5,
+  transportation: 5,
+  groceries: 18,
+  clothing: 3,
+  media: 1,
+  hobbies: 3,
+  retirement: 0,
+  buffer: 2,
+  other: 10
+};
+
+function getIncomeLevel(income) {
+  if (income < 13000) return 'veryLow';
+  if (income < 18000) return 'low';
+  if (income < 30000) return 'medium';
+  return 'high';
+}
+
+function getBudgetNumbers(incomeLevel) {
+  switch (incomeLevel) {
+    case 'veryLow':
+      return veryLowIncomeBudget;
+    case 'low':
+      return lowIncomeBudget;
+    case 'medium':
+      return mediumIncomeBudget;
+    case 'high':
+      return highIncomeBudget;
+    default:
+      return mediumIncomeBudget;
+  }
+}
+
+function getBudgetProposal(totalIncome){
+  const incomeLevel = getIncomeLevel(totalIncome);
+  const budget = getBudgetNumbers(incomeLevel);
+  return budget;
+}
+
+
 const budgetMessages = {
   housing: "Too much on housing!",
   loans: "Too much on loans!",
@@ -138,13 +227,21 @@ export function getSummary(year, month) {
     }
   }
 
+  const budget = getBudgetProposal(totalIncome);
+
+  const proposalCategories = Object.keys(budget);
+  const proposalNumbers = Object.values(budget); 
+  console.log(getBudgetProposal)
+
   return {
     totalIncome,
     totalExpenses,
     disposable: totalIncome - totalExpenses,
     categories,
     numbers,
-    adviceList
+    adviceList,
+    proposalCategories,
+    proposalNumbers
   };
   
 }
