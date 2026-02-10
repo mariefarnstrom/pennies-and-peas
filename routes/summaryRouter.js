@@ -1,14 +1,16 @@
 import express from 'express';
-import { getSummary } from '../utils/budgetUtils.js';
+import { getSummary, getAvailableMonths } from '../utils/budgetUtils.js';
+
 
 const router = express.Router();
 
-
+/* nuvarande/aktuell månad */
 router.get('/', (req, res) => {
   const now = new Date();
-  const year = now.getFullYear();
+  const year = String(now.getFullYear());
   const month = String(now.getMonth() + 1).padStart(2, '0');
 
+<<<<<<< Updated upstream
   const { totalIncome, totalExpenses, disposable, categories, numbers, adviceList } = getSummary(year, month);
 
   return res.render('summary', { totalIncome, totalExpenses, disposable, categories, numbers, adviceList });
@@ -17,18 +19,63 @@ router.get('/', (req, res) => {
 router.get('/:year/:month', (req, res) => {
   const { year, month } = req.params;
 
+=======
+>>>>>>> Stashed changes
   const summary = getSummary(year, month);
+  const months = getAvailableMonths();
 
   res.render('summary', {
     ...summary,
     year,
-    month
+    month,
+    months
   });
 });
 
+/* valfri månad */
+router.get('/:year/:month', (req, res) => {
+  const { year, month } = req.params;
 
+  const summary = getSummary(year, month);
+  const months = getAvailableMonths();
+
+  res.render('summary', {
+    ...summary,
+    year,
+    month,
+    months
+  });
+});
 
 export default router;
+
+
+// router.get('/', (req, res) => {
+//   const now = new Date();
+//   const year = now.getFullYear();
+//   const month = String(now.getMonth() + 1).padStart(2, '0');
+
+//   const { totalIncome, totalExpenses, disposable, categories, numbers } = getSummary(year, month);
+
+
+//   res.render('summary', { totalIncome, totalExpenses, disposable, categories, numbers });
+// });
+
+// router.get('/:year/:month', (req, res) => {
+//   const { year, month } = req.params;
+
+//   const summary = getSummary(year, month);
+
+//   res.render('summary', {
+//     ...summary,
+//     year,
+//     month
+//   });
+// });
+
+
+
+// export default router;
 
 
 // import express from 'express';

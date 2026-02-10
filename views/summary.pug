@@ -2,6 +2,12 @@ extends layout
 
 block layout-content
   div.View
+
+  if corrupted
+  p.alert
+    |Could not read budget data, please try again. 
+    |New month created, ready to save some pennies?
+
     h1.Banner Summary:
     div.Message
       div.Title
@@ -62,5 +68,13 @@ block layout-content
               }]
               },
           });
+
+  h3 Budgetbook
+  ul
+    each m in months
+      li
+        a(href=`/summary/${m.year}/${m.month}`)
+          = `${m.year}-${m.month}`
+
 
     

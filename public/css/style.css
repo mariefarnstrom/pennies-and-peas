@@ -1,0 +1,47 @@
+body {
+  background: rgb(75, 110, 75);
+}
+
+
+.BudgetGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.BudgetColumn {
+  background: #f6f6f6;
+  padding: 1rem;
+  border-radius: 8px;
+}
+
+.BudgetColumn h2,
+.BudgetColumn h3 {
+  margin-top: 0;
+}
+
+.BudgetColumn label {
+  display: block;
+  margin-top: 0.75rem;
+}
+
+.BudgetColumn input {
+  width: 100%;
+  padding: 0.4rem;
+}
+.FormsGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2rem;
+  margin: 2rem;
+}
+
+.FormSection {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding: 1.5rem;
+  background: #fff;
+  border-radius: 12px;
+}

@@ -31,7 +31,17 @@ export function loadMonth(year, month) {
     return emptyMonth;
   }
 
-  return JSON.parse(fs.readFileSync(filePath, 'utf-8'));
+  try {
+    return JSON.parse(fs.readFileSync(filePath, 'utf-8'));
+  } catch (err) {
+    console.error('Could not read budget file:', filePath, err);
+
+    return {
+      incomes: [],
+      expenses: [],
+      corrupted: true
+    };
+  }
 }
 
 /* 3️⃣ Spara en månad */
@@ -245,3 +255,27 @@ export function getSummary(year, month) {
   };
   
 }
+export function getAvailableMonths() {
+  if (!fs.existsSync(dataDir)) {
+    return [];
+  }
+
+  return fs.readdirSync(dataDir)
+    .filter(file => file.startsWith('budget-') && file.endsWith('.json'))
+    .map(file => {
+      // budget-2026-02.json-- ev ändra namn på nåt sätt??
+      const [, year, monthWithExt] = file.split('-');
+      const month = monthWithExt.replace('.json', '');
+
+      return { year, month };
+    })
+    // sortera kronologiskt-- översikt för framtid 
+    .sort((a, b) =>
+      a.year === b.year
+        ? a.month.localeCompare(b.month)
+        : a.year.localeCompare(b.year)
+    );
+}
+
+
+
