@@ -8,6 +8,24 @@ html
     meta(name="theme-color", content="#000000")
     title #{title}  Pennies and Peas
     link(rel="stylesheet", href="/css/style.css")
+    
+
   body
+
+    button.toggle-btn 
+
+    aside.budget-panel 
+      h2 Budget Book
+      if months && months.length 
+        ul 
+          each m in months 
+            li 
+              a(href=`/summary/${m.year}/${m.month}`) 
+                | #{m.year}-#{m.month}
+      else 
+        p No months saved yet 
+
     div#root
       block layout-content
+  
+    script(src="/js/budgetPanel.js")

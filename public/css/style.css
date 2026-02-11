@@ -45,3 +45,21 @@ body {
   background: #fff;
   border-radius: 12px;
 }
+
+/*budgetbook:*/
+
+.budget-panel {
+  position: fixed;
+  right: 0;
+  top: 0;
+  height: 100vh;
+  width: 300px;
+  background: white;
+  box-shadow: -5px 0 20px rgba(0,0,0,0.1);
+  transform: translateX(100%);
+  transition: transform 0.3s ease;
+}
+
+.budget-panel.open {
+  transform: translateX(0);
+}

@@ -4,6 +4,9 @@ import url from 'url'
 import expensesRouter from './routes/expensesRouter.js';
 import incomesRouter from './routes/incomesRouter.js';
 import summaryRouter from './routes/summaryRouter.js';
+import { getAvailableMonths } from './utils/budgetUtils.js';
+
+
 
 
 const app = express()
@@ -18,9 +21,16 @@ app.set("view engine", "pug");
 app.use(express.urlencoded({extended:true}));
 app.use(express.json());
 
+app.use((req, res, next) => {
+  res.locals.months = getAvailableMonths();
+  next();
+});
+
+
 app.use('/expenses', expensesRouter);
 app.use('/incomes', incomesRouter);
 app.use('/summary', summaryRouter);
+
 
 app.get('/', (req, res) => {
     res.render("index");
