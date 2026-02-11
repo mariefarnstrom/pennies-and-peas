@@ -194,20 +194,19 @@ function getBudgetProposal(totalIncome){
   return budget;
 }
 
-
 const budgetMessages = {
-  housing: "Too much on housing!",
-  loans: "Too much on loans!",
-  utilities: "Too much on utilities!",
-  insurance: "Too much on insurance!",
-  transportation: "Too much on transportation!",
-  groceries: "Too much on groceries!",
-  clothing: "Too much on clothing!",
-  media: "Too much on media!",
-  hobbies: "Too much on hobbies!",
-  retirement: "Too much on retirement!",
-  buffer: "Too much on buffer!",
-  other: "Too much on other!"
+  housing: "You have exceeded the recommended amount on housing. Are you eligible for - (Länk till bostadsbidrag)?",
+  loans: "Your loans seem to take up a lot of economic space. Your bank might be able to help consolidate your loans into one place",
+  utilities: "Your utility costs are high. Consider energy-saving measures like LED bulbs, smart thermostats, or switching providers.",
+  insurance: "Your insurance expenses are high. We recommend you compare insurance companies at (konsumenternas.se) to see if you could lower your premiums",
+  transportation: "Your transportation fees seems like a challenge. Is there a possibility to use public transport or walk/cycle more? Remember if you are retired or a student you are probably entitled to discount. Are you using these?",
+  groceries: "Food prices are high right now. Meal planning and cheap recipes found on sites like (portioner under tian) might help. Can you do your weekly shopping in discounted stores like Willys or Lidl? (Matsmart.se)",
+  clothing: "Your clothing expenses are high. Consider buying second-hand or waiting for sales.",
+  media: "Your subscriptions/media costs are an action movie! Review which subscriptions you actually use and cancel extras. Can you share subscription fees with friends/ family? ",
+  hobbies: "You are spending more than suggested on hobbies. There are resources available to lower monthly fees for children's sport. Read more at Majblomman and check out fritidsbanken! For crafts there are a lot of groups that sell old equipment. Check marketplace, social media interests groups etc. Is a gym membership necessary or can you find a cheaper alternative/ gym?",
+  retirement: "Your retirement savings are high relative to your income, saving is good but make it achievable. Ensure it's sustainable given your other expenses. Maybe call your municipal for financial guidance if you wish. Your bank might also be helpful to make sense of a pension plan!",
+  buffer: "Your emergency savings contribution is above the recommended percentage. Is this what you need to put your finances into now? heck if you can balance with other essential expenses.",
+  other: "Your percentage here is high compared to your overall spending/expenses. Could you review miscellaneous expenses and cut unnecessary costs?"
 }
 
 function getAdvice(percentageOfIncome, recommendedPercentage, category) {

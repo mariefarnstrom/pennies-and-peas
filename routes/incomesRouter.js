@@ -25,7 +25,7 @@ router.post('/', (req, res, next) => {
 
     updateIncomes(year, month, updates);
 
-    res.redirect('/');
+    res.status(204).end();
 
   } catch(err) {
     next(err)
