@@ -27,8 +27,8 @@ router.post('/', (req, res, next) => {
 
     res.redirect('/summary');
 
-  } catch(err) {
-    next(err)
+  } catch (err) {
+    next(err);
   }
 });
 

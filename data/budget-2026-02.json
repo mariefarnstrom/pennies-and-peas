@@ -3,12 +3,12 @@
     {
       "id": 1770724017629.904,
       "source": "salary",
-      "amount": 500
+      "amount": 0
     },
     {
       "id": 1770724017629.0825,
       "source": "benefits",
-      "amount": 60
+      "amount": 0
     },
     {
       "id": 1770724017629.8586,
@@ -35,7 +35,7 @@
     {
       "id": 1770724532759.8318,
       "category": "insurance",
-      "amount": 99
+      "amount": 0
     },
     {
       "id": 1770724532759.8867,
@@ -45,7 +45,7 @@
     {
       "id": 1770724532759.4243,
       "category": "groceries",
-      "amount": 50
+      "amount": 0
     },
     {
       "id": 1770724532759.0642,
@@ -60,7 +60,7 @@
     {
       "id": 1770724532759.4595,
       "category": "hobbies",
-      "amount": 8000
+      "amount": 0
     },
     {
       "id": 1770724532759.0295,
@@ -70,12 +70,12 @@
     {
       "id": 1770724532759.1858,
       "category": "buffer",
-      "amount": 70
+      "amount": 0
     },
     {
       "id": 1770724532759.7693,
       "category": "other",
-      "amount": 800
+      "amount": 0
     }
   ],
   "created": false
