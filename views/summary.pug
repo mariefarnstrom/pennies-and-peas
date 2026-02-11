@@ -3,10 +3,13 @@ extends layout
 block layout-content
   div.View
 
-  if corrupted
-  p.alert
-    |Could not read budget data, please try again. 
-    |New month created, ready to save some pennies?
+    if corrupted
+      p.alert 
+        |Could not read budget data, please try again. 
+    
+    if created 
+      p.alert.success 
+        |New month created, ready to save some pennies?
 
     h1.Banner Summary:
     div.Message

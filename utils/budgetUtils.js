@@ -3,50 +3,66 @@ import path from 'path';
 
 const dataDir = path.resolve('data');
 
-/* 1️⃣ Hjälpfunktion: var ska filen ligga? */
+/* placement of file */
 function getFilePath(year, month) {
   return path.join(dataDir, `budget-${year}-${month}.json`);
 }
 
 /* 2️⃣ Ladda (eller skapa) en månad */
 export function loadMonth(year, month) {
-  // se till att data-mappen finns
-  if (!fs.existsSync(dataDir)) {
-    fs.mkdirSync(dataDir);
-  }
-
   const filePath = getFilePath(year, month);
 
-  if (!fs.existsSync(filePath)) {
-    const emptyMonth = {
-      incomes: [],
-      expenses: []
-    };
-
-    fs.writeFileSync(
-      filePath,
-      JSON.stringify(emptyMonth, null, 2)
-    );
-
-    return emptyMonth;
-  }
-
   try {
-    return JSON.parse(fs.readFileSync(filePath, 'utf-8'));
-  } catch (err) {
-    console.error('Could not read budget file:', filePath, err);
+    if (!fs.existsSync(dataDir)) {
+      fs.mkdirSync(dataDir);
+    }
+
+    if (!fs.existsSync(filePath)) {
+      const emptyMonth = {
+        incomes: [],
+        expenses: []
+      };
+
+      fs.writeFileSync(filePath, JSON.stringify(emptyMonth, null, 2));
+
+      return { ...emptyMonth, created: true };
+    }
+
+    const raw = fs.readFileSync(filePath, 'utf-8');
+
+    // extra skydd
+    if (!raw) throw new Error("File empty");
+
+    const data = JSON.parse(raw);
+
+return {
+  incomes: data.incomes || [],
+  expenses: data.expenses || [],
+  created: false
+};
+
+  } catch (error) {
+    console.error("LOAD MONTH FAILED:", error);
 
     return {
       incomes: [],
       expenses: [],
-      corrupted: true
+      corrupted: true,
+      created: false
     };
   }
 }
 
+
 /* 3️⃣ Spara en månad */
 function saveMonth(year, month, data) {
   const filePath = getFilePath(year, month);
+
+  const cleanData = {
+    incomes: data.incomes,
+    expenses: data.expenses
+  };
+
   fs.writeFileSync(filePath, JSON.stringify(data, null, 2));
 }
 
@@ -206,6 +222,22 @@ function getAdvice(percentageOfIncome, recommendedPercentage, category) {
 export function getSummary(year, month) {
   const data = loadMonth(year, month);
 
+  if (data.corrupted) {
+  return {
+    totalIncome: 0,
+    totalExpenses: 0,
+    disposable: 0,
+    categories: [],
+    numbers: [],
+    adviceList: [],
+    proposalCategories: [],
+    proposalNumbers: [],
+    corrupted: true,
+    created: false
+  };
+}
+
+
   const totalIncome = data.incomes.reduce((sum, i) => sum + i.amount, 0);
   const totalExpenses = data.expenses.reduce((sum, e) => sum + e.amount, 0);
 
@@ -246,7 +278,7 @@ export function getSummary(year, month) {
 
   const proposalCategories = Object.keys(budget);
   const proposalNumbers = Object.values(budget); 
-  console.log(getBudgetProposal)
+  
 
   return {
     totalIncome,
@@ -256,7 +288,9 @@ export function getSummary(year, month) {
     numbers,
     adviceList,
     proposalCategories,
-    proposalNumbers
+    proposalNumbers,
+    created: data.created || false,
+    corrupted: data.corrupted || false
   };
   
 }
