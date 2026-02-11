@@ -16,7 +16,10 @@ block layout-content
       div.Title
         h3 You have this income: #{totalIncome}
         h1 And these expenses: #{totalExpenses}
-      span.Details You have #{disposable} left!
+      if disposable >= 0
+        span.Details You have #{disposable} SEK left.
+      else
+        span.Details You spend #{Math.abs(disposable)} SEK more than your income.
     div.NavButtons
       a(href="/user")
           div.NavButton
