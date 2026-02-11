@@ -4,97 +4,44 @@ import { getSummary, getAvailableMonths } from '../utils/budgetUtils.js';
 const router = express.Router();
 
 /* aktuell månad */
-router.get('/', (req, res) => {
-  const now = new Date();
-  const year = String(now.getFullYear());
-  const month = String(now.getMonth() + 1).padStart(2, '0');
+router.get('/', (req, res, next) => {
+  try {
+    const now = new Date();
+    const year = String(now.getFullYear());
+    const month = String(now.getMonth() + 1).padStart(2, '0');
 
-  const summary = getSummary(year, month);
-  const months = getAvailableMonths();
+    const summary = getSummary(year, month);
+    const months = getAvailableMonths();
 
-  res.render('summary', {
-    ...summary,
-    year,
-    month,
-    months
-  });
+    res.render('summary', {
+      ...summary,
+      year,
+      month,
+      months
+    });
+  } catch (err) {
+    next(err)
+  }
 });
 
 /* valfri månad */
-router.get('/:year/:month', (req, res) => {
-  const { year, month } = req.params;
+router.get('/:year/:month', (req, res, next) => {
+  try {
+    const { year, month } = req.params;
 
-  const summary = getSummary(year, month);
-  const months = getAvailableMonths();
+    const summary = getSummary(year, month);
+    const months = getAvailableMonths();
 
-  res.render('summary', {
-    ...summary,
-    year,
-    month,
-    months
-  });
+    res.render('summary', {
+      ...summary,
+      year,
+      month,
+      months
+    });
+
+  } catch (err) {
+    next(err)
+  }
 });
 
 export default router;
-
-
-
-// router.get('/', (req, res) => {
-//   const now = new Date();
-//   const year = now.getFullYear();
-//   const month = String(now.getMonth() + 1).padStart(2, '0');
-
-//   const { totalIncome, totalExpenses, disposable, categories, numbers } = getSummary(year, month);
-
-
-//   res.render('summary', { totalIncome, totalExpenses, disposable, categories, numbers });
-// });
-
-// router.get('/:year/:month', (req, res) => {
-//   const { year, month } = req.params;
-
-//   const summary = getSummary(year, month);
-
-//   res.render('summary', {
-//     ...summary,
-//     year,
-//     month
-//   });
-// });
-
-
-
-// export default router;
-
-
-// import express from 'express';
-// import { incomes, expenses } from '../data/store.js';
-
-// const router = express.Router();
-
-// router.get('/', (req, res) => {
-//     let totalIncome = 0;
-//     let totalExpenses = 0;
-//     incomes.forEach(element => {
-//         totalIncome += element.amount;
-//     });
-
-//     expenses.forEach(element => {
-//         totalExpenses += element.amount;
-//     });
-
-//     let disposable = totalIncome - totalExpenses;
-
-//     console.log("Income: ", totalIncome, "expenses: ", totalExpenses, "disposable: ", disposable);
-
-//     // Pug:
-//     res.render("summary", { totalIncome, totalExpenses, disposable });
-
-//     // res.status(200).json({
-//     //     message: 'Summary endpoint!'
-//     // });
-// });
-
-
-
-// export default router
