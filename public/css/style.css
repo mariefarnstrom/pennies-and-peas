@@ -26,6 +26,42 @@ body {
   color: inherit;
 }
 
+.income-container form {
+  display: flex;
+  align-items: center;   /* vertikal center */
+  gap: 15px;             /* spacing beween row */
+  justify-content: center; /* center  the row */
+  flex-wrap: wrap;       /* mobiefriendly */
+}
+
+.income-container h2 {
+  text-align: center;
+}
+
+.expenses-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 40px;
+  margin-top: 20px;
+}
+
+form {
+  max-width: 1100px;
+  margin: 40px auto;
+}
+
+form button {
+  display: block;
+  margin: 40px auto 0;
+}
+
+
+.column {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
 
 .BudgetGrid {
   display: grid;
@@ -86,4 +122,11 @@ body {
 
 .budget-panel.open {
   transform: translateX(0);
+}
+
+
+@media (max-width: 900px) {
+  .expenses-grid {
+    grid-template-columns: 1fr;
+  }
 }
