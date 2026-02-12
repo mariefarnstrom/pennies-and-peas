@@ -3,7 +3,7 @@ import { getSummary, getAvailableMonths } from '../utils/budgetUtils.js';
 
 const router = express.Router();
 
-/* aktuell månad */
+// Current month
 router.get('/', (req, res, next) => {
   try {
     const now = new Date();
@@ -24,7 +24,7 @@ router.get('/', (req, res, next) => {
   }
 });
 
-/* valfri månad */
+// Any month
 router.get('/:year/:month', (req, res, next) => {
   try {
     const { year, month } = req.params;

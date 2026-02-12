@@ -3,12 +3,12 @@ import path from 'path';
 
 const dataDir = path.resolve('data');
 
-/* placement of file */
+// placement of file
 function getFilePath(year, month) {
   return path.join(dataDir, `budget-${year}-${month}.json`);
 }
 
-/* 2️⃣ Ladda (eller skapa) en månad */
+// Load or create new month
 export function loadMonth(year, month) {
   const filePath = getFilePath(year, month);
 
@@ -30,16 +30,16 @@ export function loadMonth(year, month) {
 
     const raw = fs.readFileSync(filePath, 'utf-8');
 
-    // extra skydd
+    // extra protection
     if (!raw) throw new Error("File empty");
 
     const data = JSON.parse(raw);
 
-return {
-  incomes: data.incomes || [],
-  expenses: data.expenses || [],
-  created: false
-};
+    return {
+      incomes: data.incomes || [],
+      expenses: data.expenses || [],
+      created: false
+    };
 
   } catch (error) {
     console.error("LOAD MONTH FAILED:", error);
@@ -54,7 +54,7 @@ return {
 }
 
 
-/* 3️⃣ Spara en månad */
+// Save month budget
 function saveMonth(year, month, data) {
   const filePath = getFilePath(year, month);
 
@@ -66,7 +66,7 @@ function saveMonth(year, month, data) {
   fs.writeFileSync(filePath, JSON.stringify(data, null, 2));
 }
 
-/* 4️⃣ Lägg till expense */
+// Add expenses
 export function setExpenses(year, month, expenses) {
   const data = loadMonth(year, month);
   data.expenses = expenses.map(e => ({
@@ -76,16 +76,17 @@ export function setExpenses(year, month, expenses) {
   saveMonth(year, month, data); 
 }
 
-/* 5️⃣ Lägg till income */
+// Add income
 export function setIncomes(year, month, incomes) {
   const data = loadMonth(year, month);
   data.incomes = incomes.map(i => ({
      id: Date.now() + Math.random(),
     ...i
- }));
+  }));
   saveMonth(year, month, data);
 }
 
+// Numbers used to calculate budget
 const recommendedPercentages = {
   housing: 35,
   loans: 10,
@@ -101,6 +102,7 @@ const recommendedPercentages = {
   other: 5
 };
 
+// Recommended percentage distribution depending on income level
 const highIncomeBudget = {
   housing: 32,
   loans: 8,
@@ -188,6 +190,7 @@ function getBudgetProposal(totalIncome){
   const percentageBudget = getBudgetNumbers(incomeLevel);
   const budget = {};
 
+  // Convert percentages to SEK
   for (const category in percentageBudget) {
     budget[category] = Math.round((percentageBudget[category] / 100) * totalIncome);
   }
@@ -195,17 +198,17 @@ function getBudgetProposal(totalIncome){
 }
 
 const budgetMessages = {
-  housing: "You have exceeded the recommended amount on housing. Are you eligible for - (Länk till bostadsbidrag)?",
+  housing: "You have exceeded the recommended amount on housing. Are you eligible for <a href='https://www.forsakringskassan.se/privatperson/arbetssokande/bostadsbidrag'>housing allowance</a>?",
   loans: "Your loans seem to take up a lot of economic space. Your bank might be able to help consolidate your loans into one place",
   utilities: "Your utility costs are high. Consider energy-saving measures like LED bulbs, smart thermostats, or switching providers.",
-  insurance: "Your insurance expenses are high. We recommend you compare insurance companies at (konsumenternas.se) to see if you could lower your premiums",
+  insurance: "Your insurance expenses are high. We recommend you compare insurance companies at <a href='https://www.konsumenternas.se/'>konsumenternas.se</a> to see if you could lower your premiums",
   transportation: "Your transportation fees seems like a challenge. Is there a possibility to use public transport or walk/cycle more? Remember if you are retired or a student you are probably entitled to discount. Are you using these?",
-  groceries: "Food prices are high right now. Meal planning and cheap recipes found on sites like (portioner under tian) might help. Can you do your weekly shopping in discounted stores like Willys or Lidl? (Matsmart.se)",
+  groceries: "Food prices are high right now. Meal planning and cheap recipes found on sites like <a href='https://undertian.com/'>Under tian</a> might help. Can you do your weekly shopping in discounted stores like Willys or Lidl? <a href='https://www.matsmart.se/'>Matsmart</a> is also a place to find good deals.",
   clothing: "Your clothing expenses are high. Consider buying second-hand or waiting for sales.",
   media: "Your subscriptions/media costs are an action movie! Review which subscriptions you actually use and cancel extras. Can you share subscription fees with friends/ family? ",
-  hobbies: "You are spending more than suggested on hobbies. There are resources available to lower monthly fees for children's sport. Read more at Majblomman and check out fritidsbanken! For crafts there are a lot of groups that sell old equipment. Check marketplace, social media interests groups etc. Is a gym membership necessary or can you find a cheaper alternative/ gym?",
+  hobbies: "You are spending more than suggested on hobbies. There are resources available to lower monthly fees for children's sport. Read more at <a href='https://majblomman.se/'>Majblomman</a> and check out <a href='https://www.fritidsbanken.se/'>Fritidsbanken</a>! For crafts there are a lot of groups that sell old equipment. Check <a href='https://www.facebook.com/marketplace/?locale=sv_SE'>marketplace</a>, social media interests groups etc. Is a gym membership necessary or can you find a cheaper alternative/ gym?",
   retirement: "Your retirement savings are high relative to your income, saving is good but make it achievable. Ensure it's sustainable given your other expenses. Maybe call your municipal for financial guidance if you wish. Your bank might also be helpful to make sense of a pension plan!",
-  buffer: "Your emergency savings contribution is above the recommended percentage. Is this what you need to put your finances into now? heck if you can balance with other essential expenses.",
+  buffer: "Your emergency savings contribution is above the recommended percentage. Is this what you need to put your finances into now? Check if you can balance with other essential expenses.",
   other: "Your percentage here is high compared to your overall spending/expenses. Could you review miscellaneous expenses and cut unnecessary costs?"
 }
 
@@ -217,7 +220,7 @@ function getAdvice(percentageOfIncome, recommendedPercentage, category) {
   return null;
 }
 
-/* 6️⃣ Summering */
+// Summary
 export function getSummary(year, month) {
   const data = loadMonth(year, month);
 
@@ -236,10 +239,11 @@ export function getSummary(year, month) {
   };
 }
 
-
+  // Calculate total incomes and expenses
   const totalIncome = data.incomes.reduce((sum, i) => sum + i.amount, 0);
   const totalExpenses = data.expenses.reduce((sum, e) => sum + e.amount, 0);
 
+  // Group expenses by category
   const categoryTotals = {};
 
   data.expenses.forEach(e => {
@@ -247,11 +251,13 @@ export function getSummary(year, month) {
       (categoryTotals[e.category] || 0) + e.amount;
   });
 
+  // Prepare data for pie chart
   const categories = Object.keys(categoryTotals);
   const numbers = Object.values(categoryTotals);
 
   const adviceList = [];
 
+  // Compare each category against recommended percentages
   for (const category in categoryTotals) {
     const amount = categoryTotals[category];
     const percentageOfIncome = (amount / totalIncome) * 100;
@@ -262,7 +268,8 @@ export function getSummary(year, month) {
       recommendedPercentage,
       category
     );
-
+    
+    // Add advice if spending exceeds recommendation
     if (advice) {
       adviceList.push({
         category,
@@ -300,14 +307,14 @@ export function getAvailableMonths() {
 
   return fs.readdirSync(dataDir)
     .filter(file => file.startsWith('budget-') && file.endsWith('.json'))
+
     .map(file => {
-      // budget-2026-02.json-- ev ändra namn på nåt sätt??
       const [, year, monthWithExt] = file.split('-');
       const month = monthWithExt.replace('.json', '');
 
       return { year, month };
     })
-    // sortera kronologiskt-- översikt för framtid 
+    // sort chronologically-- overview for future
     .sort((a, b) =>
       a.year === b.year
         ? a.month.localeCompare(b.month)
@@ -323,8 +330,9 @@ export function updateExpenses(year, month, newExpenses) {
       e => e.category === newItem.category
     );
 
+    // If the category already exists for this month, update its amount. Otherwise, create a new expense entry.
     if (existing) {
-      existing.amount = newItem.amount; // uppdatera
+      existing.amount = newItem.amount;
     } else {
       data.expenses.push({
         id: Date.now() + Math.random(),
@@ -335,6 +343,7 @@ export function updateExpenses(year, month, newExpenses) {
 
   saveMonth(year, month, data);
 }
+
 export function updateIncomes(year, month, newIncomes) {
   const data = loadMonth(year, month);
 

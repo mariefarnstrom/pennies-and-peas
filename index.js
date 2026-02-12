@@ -7,8 +7,6 @@ import summaryRouter from './routes/summaryRouter.js';
 import { getAvailableMonths } from './utils/budgetUtils.js';
 
 
-
-
 const app = express()
 const port = 3000
 
@@ -38,6 +36,7 @@ app.get('/', (req, res) => {
 
 app.use(express.static('src/public'))
 
+// Error handler
 app.use((err, req, res, next) => {
   console.error(err);
   res.status(500);

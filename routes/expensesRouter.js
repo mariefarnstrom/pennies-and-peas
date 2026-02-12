@@ -7,6 +7,7 @@ router.post('/', (req, res, next) => {
   try {
     const allExpenses = req.body.expenses;
 
+    // Get current year and month to store data per month
     const now = new Date();
     const year = now.getFullYear();
     const month = String(now.getMonth() + 1).padStart(2, '0');
