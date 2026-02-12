@@ -11,19 +11,6 @@ block layout-content
       p.alert.success 
         |New month created, ready to save some pennies?
 
-    h1.Banner Summary:
-    div.Message
-      div.Title
-        h3 You have this income: #{totalIncome}
-        h1 And these expenses: #{totalExpenses}
-      if disposable >= 0
-        span.Details You have #{disposable} SEK left.
-      else
-        span.Details You spend #{Math.abs(disposable)} SEK more than your income.
-    div.NavButtons
-      a(href="/user")
-          div.NavButton
-
     script(src="https://cdn.jsdelivr.net/npm/chart.js")
 
 
@@ -36,15 +23,17 @@ block layout-content
       div.info-box
         div.Message
           div.Title
-            h3 You have this income: #{totalIncome}
-            h1 And these expenses: #{totalExpenses}
+            h1.Banner Current budget:
+            p Your total income is: #{totalIncome} SEK
+            p You have spent #{totalExpenses} SEK this month.
           if disposable >= 0
-            span.Details You have #{disposable} SEK left.
+            p.Details Money left to Invest / Spend: #{disposable} SEK
           else
-            span.Details You spend #{Math.abs(disposable)} SEK more than your income.
+            p.Details You spend #{Math.abs(disposable)} SEK more than your income.
 
       // ----- ROW 2 -----
       div.info-box
+        h1 Pennies and Peas Advice Plan
         div.Advice
           h3 Advice
           ul

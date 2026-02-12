@@ -258,7 +258,8 @@ export function getSummary(year, month) {
   (categoryTotals.other_savings || 0);
 
   // Prepare data for pie chart
-  const categories = Object.keys(categoryTotals);
+  const categories = Object.keys(categoryTotals).map(key =>
+  key.replace(/_/g, ' '));
   const numbers = Object.values(categoryTotals);
 
   const adviceList = [];
