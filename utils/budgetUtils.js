@@ -99,7 +99,7 @@ const recommendedPercentages = {
   hobbies: 5,
   retirement: 10,
   buffer: 5,
-  other: 5
+  other_savings: 5
 };
 
 // Recommended percentage distribution depending on income level
@@ -115,7 +115,7 @@ const highIncomeBudget = {
   hobbies: 6,
   retirement: 10,
   buffer: 6,
-  other: 4
+  other_savings: 4
 };
 
 const mediumIncomeBudget = {
@@ -130,7 +130,7 @@ const mediumIncomeBudget = {
   hobbies: 5,
   retirement: 4,
   buffer: 4,
-  other: 2
+  other_savings: 2
 };
 
 const lowIncomeBudget = {
@@ -145,7 +145,7 @@ const lowIncomeBudget = {
   hobbies: 5,
   retirement: 1,
   buffer: 3,
-  other: 1
+  other_savings: 1
 }
 
 const veryLowIncomeBudget = {
@@ -160,7 +160,7 @@ const veryLowIncomeBudget = {
   hobbies: 3,
   retirement: 0,
   buffer: 2,
-  other: 10
+  other_savings: 10
 };
 
 function getIncomeLevel(income) {
@@ -209,12 +209,12 @@ const budgetMessages = {
   hobbies: "You are spending more than suggested on hobbies. There are resources available to lower monthly fees for children's sport. Read more at <a href='https://majblomman.se/'>Majblomman</a> and check out <a href='https://www.fritidsbanken.se/'>Fritidsbanken</a>! For crafts there are a lot of groups that sell old equipment. Check <a href='https://www.facebook.com/marketplace/?locale=sv_SE'>marketplace</a>, social media interests groups etc. Is a gym membership necessary or can you find a cheaper alternative/ gym?",
   retirement: "Your retirement savings are high relative to your income, saving is good but make it achievable. Ensure it's sustainable given your other expenses. Maybe call your municipal for financial guidance if you wish. Your bank might also be helpful to make sense of a pension plan!",
   buffer: "Your emergency savings contribution is above the recommended percentage. Is this what you need to put your finances into now? Check if you can balance with other essential expenses.",
-  other: "Your percentage here is high compared to your overall spending/expenses. Could you review miscellaneous expenses and cut unnecessary costs?"
+  other_savings: "Your percentage here is high compared to your overall spending/expenses. Could you review miscellaneous expenses and cut unnecessary costs?"
 }
 
-function getAdvice(percentageOfIncome, recommendedPercentage, category) {
+function getAdvice(percentageOfIncome, recommendedPercentage, disposable, totalIncome, savings, category) {
 
-  if (percentageOfIncome > recommendedPercentage) {
+  if (percentageOfIncome > recommendedPercentage && disposable < totalIncome * 0.2 && savings / totalIncome < 0.2) {
     return budgetMessages[category];
   }
   return null;
@@ -225,23 +225,24 @@ export function getSummary(year, month) {
   const data = loadMonth(year, month);
 
   if (data.corrupted) {
-  return {
-    totalIncome: 0,
-    totalExpenses: 0,
-    disposable: 0,
-    categories: [],
-    numbers: [],
-    adviceList: [],
-    proposalCategories: [],
-    proposalNumbers: [],
-    corrupted: true,
-    created: false
-  };
-}
+    return {
+      totalIncome: 0,
+      totalExpenses: 0,
+      disposable: 0,
+      categories: [],
+      numbers: [],
+      adviceList: [],
+      proposalCategories: [],
+      proposalNumbers: [],
+      corrupted: true,
+      created: false
+    };
+  }
 
   // Calculate total incomes and expenses
   const totalIncome = data.incomes.reduce((sum, i) => sum + i.amount, 0);
   const totalExpenses = data.expenses.reduce((sum, e) => sum + e.amount, 0);
+  const disposable = totalIncome - totalExpenses;
 
   // Group expenses by category
   const categoryTotals = {};
@@ -250,6 +251,11 @@ export function getSummary(year, month) {
     categoryTotals[e.category] =
       (categoryTotals[e.category] || 0) + e.amount;
   });
+
+  const savings =
+  (categoryTotals.retirement || 0) +
+  (categoryTotals.buffer || 0) +
+  (categoryTotals.other_savings || 0);
 
   // Prepare data for pie chart
   const categories = Object.keys(categoryTotals);
@@ -266,6 +272,9 @@ export function getSummary(year, month) {
     const advice = getAdvice(
       percentageOfIncome,
       recommendedPercentage,
+      disposable,
+      totalIncome,
+      savings,
       category
     );
     
@@ -282,14 +291,22 @@ export function getSummary(year, month) {
 
   const budget = getBudgetProposal(totalIncome);
 
-  const proposalCategories = Object.keys(budget);
-  const proposalNumbers = Object.values(budget); 
+  const proposalCategories = Object.keys(budget).map(key =>
+  key.replace(/_/g, ' '));
+  const proposalNumbers = Object.values(budget);
   
+  if (totalIncome > 15000 && savings < totalIncome * 0.05) {
+    adviceList.push({message: "Your savings are currently quite low compared to your income. Even small, regular savings can provide peace of mind and a buffer for unexpected expenses. Consider setting aside a little each month — it really adds up over time!"});
+  }
+
+  if (adviceList.length < 1) {
+    adviceList.push({message: "You seem to have a healthy economy. Keep it up and enjoy the peace of mind!"});
+  }
 
   return {
     totalIncome,
     totalExpenses,
-    disposable: totalIncome - totalExpenses,
+    disposable,
     categories,
     numbers,
     adviceList,
