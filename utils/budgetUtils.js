@@ -212,9 +212,9 @@ const budgetMessages = {
   other: "Your percentage here is high compared to your overall spending/expenses. Could you review miscellaneous expenses and cut unnecessary costs?"
 }
 
-function getAdvice(percentageOfIncome, recommendedPercentage, category) {
+function getAdvice(percentageOfIncome, recommendedPercentage, disposable, totalIncome, savings, category) {
 
-  if (percentageOfIncome > recommendedPercentage) {
+  if (percentageOfIncome > recommendedPercentage && disposable < totalIncome * 0.2 && savings / totalIncome < 0.2) {
     return budgetMessages[category];
   }
   return null;
@@ -242,6 +242,7 @@ export function getSummary(year, month) {
   // Calculate total incomes and expenses
   const totalIncome = data.incomes.reduce((sum, i) => sum + i.amount, 0);
   const totalExpenses = data.expenses.reduce((sum, e) => sum + e.amount, 0);
+  const disposable = totalIncome - totalExpenses;
 
   // Group expenses by category
   const categoryTotals = {};
@@ -250,6 +251,11 @@ export function getSummary(year, month) {
     categoryTotals[e.category] =
       (categoryTotals[e.category] || 0) + e.amount;
   });
+
+  const savings =
+  (categoryTotals.retirement || 0) +
+  (categoryTotals.buffer || 0) +
+  (categoryTotals.other || 0);
 
   // Prepare data for pie chart
   const categories = Object.keys(categoryTotals);
@@ -266,6 +272,9 @@ export function getSummary(year, month) {
     const advice = getAdvice(
       percentageOfIncome,
       recommendedPercentage,
+      disposable,
+      totalIncome,
+      savings,
       category
     );
     
@@ -283,13 +292,16 @@ export function getSummary(year, month) {
   const budget = getBudgetProposal(totalIncome);
 
   const proposalCategories = Object.keys(budget);
-  const proposalNumbers = Object.values(budget); 
+  const proposalNumbers = Object.values(budget);
   
+  if (adviceList.length < 1) {
+    adviceList.push({message: "You seem to have a healthy economy. Keep it up and enjoy the peace of mind!"});
+  }
 
   return {
     totalIncome,
     totalExpenses,
-    disposable: totalIncome - totalExpenses,
+    disposable,
     categories,
     numbers,
     adviceList,
