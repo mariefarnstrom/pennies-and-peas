@@ -106,6 +106,28 @@ form button {
   border-radius: 12px;
 }
 
+/*Summary*/
+
+.summary-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px 80px;
+  max-width: 1200px;
+  margin: 60px auto;
+  align-items: center;
+}
+
+.chart-box {
+  max-width: 400px;
+}
+
+.chart-box canvas {
+  width: 100% !important;
+  height: auto !important;
+}
+
+
+
 /*budgetbook:*/
 
 .budget-panel {
