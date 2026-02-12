@@ -5,6 +5,7 @@ document.addEventListener('DOMContentLoaded', () => {
   if (toggleBtn && panel) {
     toggleBtn.addEventListener('click', () => {
       panel.classList.toggle('open');
+      toggleBtn.classList.toggle('spin');
     });
   }
 });

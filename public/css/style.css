@@ -146,6 +146,30 @@ form button {
   transform: translateX(0);
 }
 
+.toggle-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+
+.toggle-btn svg {
+  width: 48px;
+  height: 48px;
+  pointer-events: none;
+  transition: transform 0.2s ease;
+}
+
+
+.toggle-btn:hover svg {
+  transform: scale(1.1);
+}
+
+.spin svg {
+  transform: rotate(180deg);
+}
+
+
 
 @media (max-width: 900px) {
   .expenses-grid {
