@@ -225,19 +225,19 @@ export function getSummary(year, month) {
   const data = loadMonth(year, month);
 
   if (data.corrupted) {
-  return {
-    totalIncome: 0,
-    totalExpenses: 0,
-    disposable: 0,
-    categories: [],
-    numbers: [],
-    adviceList: [],
-    proposalCategories: [],
-    proposalNumbers: [],
-    corrupted: true,
-    created: false
-  };
-}
+    return {
+      totalIncome: 0,
+      totalExpenses: 0,
+      disposable: 0,
+      categories: [],
+      numbers: [],
+      adviceList: [],
+      proposalCategories: [],
+      proposalNumbers: [],
+      corrupted: true,
+      created: false
+    };
+  }
 
   // Calculate total incomes and expenses
   const totalIncome = data.incomes.reduce((sum, i) => sum + i.amount, 0);
@@ -295,6 +295,10 @@ export function getSummary(year, month) {
   key.replace(/_/g, ' '));
   const proposalNumbers = Object.values(budget);
   
+  if (totalIncome > 15000 && savings < totalIncome * 0.05) {
+    adviceList.push({message: "Your savings are currently quite low compared to your income. Even small, regular savings can provide peace of mind and a buffer for unexpected expenses. Consider setting aside a little each month — it really adds up over time!"});
+  }
+
   if (adviceList.length < 1) {
     adviceList.push({message: "You seem to have a healthy economy. Keep it up and enjoy the peace of mind!"});
   }
