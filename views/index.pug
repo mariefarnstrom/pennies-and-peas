@@ -5,13 +5,17 @@ block layout-content
 
     div.Message
       div.Title
-        h3 Get rich
-        h1 or die
-      span.Details trying!
+        h3 About Pennies and Peas, your friendly budget helper!
+      span.Details We exist in order to help all who are new to a budget, who find budgeting 
+      |daunting and need a hand to take the first steps. Just fill in the forms with your expenses 
+      |and your income and we will calculate your total income and total expenses. based on this we will the give you a pie! Well, a pie chart to be honest and show how your spending looks. 
+      |like and where we think changes might be neccessary. by making things more visualy available you csn then make informed decisions. Maybe you are overspending on things when you gould get discounts? 
+      |Maybe you do have. agood budget but the money is simply not enough? Then we will help with links and information on how you can find recourses and find help. Money is ha difficult and vulnerbule topic 
+      |and we want to help you make the best decitions available to you. So lets start and save some pennies!  
 
     div.NavButtons
       a(href="/user")
-          div.NavButton Just dive in!
+          div.NavButton Future login?
     div.IncomesForm
 
     div.income-container 
@@ -73,7 +77,7 @@ block layout-content
           label Other savings
           input(type="number" name="expenses[other]")
 
-      button(type="submit") Calculate budget
+        button(type="submit") Calculate budget
 
     //- form(action="/expenses" method="POST")
     //-     h2 Expenses
