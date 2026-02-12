@@ -1,5 +1,29 @@
+* {
+box-sizing: border-box;
+}
+
 body {
-  background: rgb(75, 110, 75);
+  background: rgb(157, 191, 157);
+  font-family: monospace;
+  padding: 20px;
+}
+
+.hero {
+  width: 100%;
+  text-align: center;
+  padding: 40px 20px;
+}
+
+.app-title {
+  font-family: 'Tangerine', cursive;
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin: 0;
+}
+
+.home-link {
+  text-decoration: none;
+  color: inherit;
 }
 
 
@@ -54,7 +78,7 @@ body {
   top: 0;
   height: 100vh;
   width: 300px;
-  background: white;
+  background: rgb(117, 159, 91);
   box-shadow: -5px 0 20px rgba(0,0,0,0.1);
   transform: translateX(100%);
   transition: transform 0.3s ease;
