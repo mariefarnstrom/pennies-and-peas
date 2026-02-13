@@ -14,13 +14,16 @@ block layout-content
       h2 Income 
   
       form.income-form(action="/incomes" method="POST")
-        label(for="incomes") Salary:
-        input(type="number" name="incomes[salary]")
-        label(for="incomes") Benefits:
-        input(type="number" name="incomes[benefits]")
-        label(for="incomes") Other income:
-        input(type="number" name="incomes[other]")
-        button.primary-btn(type="submit") Add income
+        div.income-row 
+          label Salary:
+          input(type="number" name="incomes[salary]")
+          label Benefits:
+          input(type="number" name="incomes[benefits]")
+          label Other income:
+          input(type="number" name="incomes[other]")
+        
+        div.button-align 
+          button.primary-btn(type="submit") Add income
 
     form(action="/expenses" method="POST")
       h2 Expenses
@@ -69,7 +72,8 @@ block layout-content
           label Other savings
           input(type="number" name="expenses[other_savings]")
 
-        button.primary-btn(type="submit") Calculate budget
+      div.button-align
+          button.primary-btn(type="submit") Calculate budget
 
     //- form(action="/expenses" method="POST")
     //-     h2 Expenses
