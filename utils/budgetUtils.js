@@ -214,7 +214,7 @@ const budgetMessages = {
 
 function getAdvice(percentageOfIncome, recommendedPercentage, disposable, totalIncome, savings, category) {
 
-  if (percentageOfIncome > recommendedPercentage && disposable < totalIncome * 0.2 && savings / totalIncome < 0.2) {
+  if (percentageOfIncome > recommendedPercentage && disposable < totalIncome * 0.2 && (savings / totalIncome < 0.2 || disposable <= 0)) {
     return budgetMessages[category];
   }
   return null;
