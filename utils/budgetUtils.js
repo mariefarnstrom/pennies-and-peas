@@ -146,21 +146,21 @@ const lowIncomeBudget = {
   retirement: 1,
   buffer: 3,
   other_savings: 1
-}
+};
 
 const veryLowIncomeBudget = {
   housing: 45,
-  loans: 0,
+  loans: 5,
   utilities: 8,
   insurance: 5,
   transportation: 5,
   groceries: 18,
   clothing: 3,
   media: 1,
-  hobbies: 3,
+  hobbies: 2,
   retirement: 0,
-  buffer: 2,
-  other_savings: 10
+  buffer: 1,
+  other_savings: 2
 };
 
 function getIncomeLevel(income) {
