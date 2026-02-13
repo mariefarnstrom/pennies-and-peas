@@ -26,6 +26,10 @@ body {
   color: inherit;
 }
 
+a {
+  color: #7b3f06;
+}
+
 .income-form {
 max-width: 1100px;
 margin: 0 auto;
