@@ -73,14 +73,14 @@ export function setExpenses(year, month, expenses) {
     id: Date.now() + Math.random(),
     ...e
   }));
-  saveMonth(year, month, data); 
+  saveMonth(year, month, data);
 }
 
 // Add income
 export function setIncomes(year, month, incomes) {
   const data = loadMonth(year, month);
   data.incomes = incomes.map(i => ({
-     id: Date.now() + Math.random(),
+    id: Date.now() + Math.random(),
     ...i
   }));
   saveMonth(year, month, data);
@@ -185,7 +185,7 @@ function getBudgetNumbers(incomeLevel) {
   }
 }
 
-function getBudgetProposal(totalIncome){
+function getBudgetProposal(totalIncome) {
   const incomeLevel = getIncomeLevel(totalIncome);
   const percentageBudget = getBudgetNumbers(incomeLevel);
   const budget = {};
@@ -253,13 +253,13 @@ export function getSummary(year, month) {
   });
 
   const savings =
-  (categoryTotals.retirement || 0) +
-  (categoryTotals.buffer || 0) +
-  (categoryTotals.other_savings || 0);
+    (categoryTotals.retirement || 0) +
+    (categoryTotals.buffer || 0) +
+    (categoryTotals.other_savings || 0);
 
   // Prepare data for pie chart
   const categories = Object.keys(categoryTotals).map(key =>
-  key.replace(/_/g, ' '));
+    key.replace(/_/g, ' '));
   const numbers = Object.values(categoryTotals);
 
   const adviceList = [];
@@ -278,7 +278,7 @@ export function getSummary(year, month) {
       savings,
       category
     );
-    
+
     // Add advice if spending exceeds recommendation
     if (advice) {
       adviceList.push({
@@ -293,15 +293,15 @@ export function getSummary(year, month) {
   const budget = getBudgetProposal(totalIncome);
 
   const proposalCategories = Object.keys(budget).map(key =>
-  key.replace(/_/g, ' '));
+    key.replace(/_/g, ' '));
   const proposalNumbers = Object.values(budget);
-  
+
   if (totalIncome > 15000 && savings < totalIncome * 0.05) {
-    adviceList.push({message: "Your savings are currently quite low compared to your income. Even small, regular savings can provide peace of mind and a buffer for unexpected expenses. Consider setting aside a little each month — it really adds up over time!"});
+    adviceList.push({ message: "Your savings are currently quite low compared to your income. Even small, regular savings can provide peace of mind and a buffer for unexpected expenses. Consider setting aside a little each month — it really adds up over time!" });
   }
 
   if (adviceList.length < 1) {
-    adviceList.push({message: "You seem to have a healthy economy. Keep it up and enjoy the peace of mind!"});
+    adviceList.push({ message: "You seem to have a healthy economy. Keep it up and enjoy the peace of mind!" });
   }
 
   return {
@@ -316,7 +316,7 @@ export function getSummary(year, month) {
     created: data.created || false,
     corrupted: data.corrupted || false
   };
-  
+
 }
 export function getAvailableMonths() {
   if (!fs.existsSync(dataDir)) {
@@ -383,6 +383,7 @@ export function updateIncomes(year, month, newIncomes) {
   saveMonth(year, month, data);
 }
 
+// Comment to create code review
 
 
 
