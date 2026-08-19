@@ -49,7 +49,7 @@ Chart.js for visualizations
 
 File-based JSON storage
 
-Error Handling
+## Error Handling
 Routes wrapped in try/catch
 
 500 errors handled globally in index.js
