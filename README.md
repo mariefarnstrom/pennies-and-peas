@@ -1,6 +1,7 @@
 # Budget Tracker
 
 A simple personal budget app that lets users track incomes, expenses, and savings. Provides summaries, pie charts, and budget recommendations.
+The app currently uses SEK and is designed for users in Sweden. Some recommendations and resources are therefore Sweden-specific.
 
 ## Features
 
