@@ -1,0 +1,112 @@
+extends layout
+
+block layout-content
+  div.View
+
+    div.Message
+      div.Title
+        h3 About Pennies and Peas, your friendly budget helper!
+      span.Details We exist in order to help anyone who is new to budgeting, who finds it daunting and needs a hand to take the first steps. Just fill in the forms with your income and expenses and we will calculate your total income and total expenses. Based on this we will give you a pie! Well, a pie chart to be honest showing you what your spending looks like and where we think changes might be necessary. By making things more visually available, you can make informed decisions. Maybe you are overspending on certain things when you could get discounts? Maybe you do have a good budget but the money is simply not enough? Then we will provide links and information on how you can find resources and support. Money is a difficult and vulnerable topic, and we want to help you make the best decisions available to you. So let's get started and save some pennies!
+
+    div.IncomesForm
+
+    div.income-container 
+      h2 Income 
+  
+      form.income-form(action="/incomes" method="POST")
+        div.income-row 
+          label Salary:
+          input(type="number" name="incomes[salary]")
+          label Benefits:
+          input(type="number" name="incomes[benefits]")
+          label Other income:
+          input(type="number" name="incomes[other]")
+        
+        div.button-align 
+          button.primary-btn(type="submit") Add income
+
+    form(action="/expenses" method="POST")
+      h2 Expenses
+
+      div.expenses-grid
+
+        div.column
+          h3 Fixed costs
+          label Rent / Housing
+          input(type="number" name="expenses[housing]")
+
+          label Loan payments
+          input(type="number" name="expenses[loans]")
+
+          label Utilities
+          input(type="number" name="expenses[utilities]")
+
+          label Insurance
+          input(type="number" name="expenses[insurance]")
+
+          label Transportation
+          input(type="number" name="expenses[transportation]")
+
+        div.column
+          h3 Variable costs
+          label Groceries
+          input(type="number" name="expenses[groceries]")
+
+          label Clothing
+          input(type="number" name="expenses[clothing]")
+
+          label Subscriptions / Media
+          input(type="number" name="expenses[media]")
+
+          label Hobbies / Sports
+          input(type="number" name="expenses[hobbies]")
+
+        div.column
+          h3 Savings
+          label Retirement savings
+          input(type="number" name="expenses[retirement]")
+
+          label Buffer
+          input(type="number" name="expenses[buffer]")
+
+          label Other savings
+          input(type="number" name="expenses[other_savings]")
+
+      div.button-align
+          button.primary-btn(type="submit") Calculate budget
+
+    //- form(action="/expenses" method="POST")
+    //-     h2 Expenses
+    //-     h3 Fixed costs:
+    //-     label(for="expenses") Rent / Housing:
+    //-     input(type="number" name="expenses[housing]")
+    //-     label(for="expenses") Loan payments:
+    //-     input(type="number" name="expenses[loans]")
+    //-     label(for="expenses") Utilities:
+    //-     input(type="number" name="expenses[utilities]")
+    //-     label(for="expenses") Insurance:
+    //-     input(type="number" name="expenses[insurance]")
+    //-     label(for="expenses") Transportation:
+    //-     input(type="number" name="expenses[transportation]")
+
+
+    //-     h3 Variable costs:
+    //-     label(for="expenses") Groceries:
+    //-     input(type="number" name="expenses[groceries]")
+    //-     label(for="expenses") Clothing:
+    //-     input(type="number" name="expenses[clothing]")
+    //-     label(for="expenses") Subscriptions / Media:
+    //-     input(type="number" name="expenses[media]")
+    //-     label(for="expenses") Hobbies / Sports:
+    //-     input(type="number" name="expenses[hobbies]")
+
+    //-     h3 Savings:
+    //-     label(for="expenses") Retirement savings:
+    //-     input(type="number" name="expenses[retirement]")
+    //-     label(for="expenses") Buffer:
+    //-     input(type="number" name="expenses[buffer]")
+    //-     label(for="expenses") Other savings:
+    //-     input(type="number" name="expenses[other]")
+        
+
+    //-     button(type="submit") Calculate budget

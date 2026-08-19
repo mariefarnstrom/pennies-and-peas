@@ -1,0 +1,133 @@
+extends layout
+
+block layout-content
+  div.View
+
+    if corrupted
+      p.alert 
+        |Could not read budget data, please try again. 
+    
+    if created 
+      p.alert.success 
+        |New month created, ready to save some pennies?
+
+    script(src="https://cdn.jsdelivr.net/npm/chart.js")
+
+
+    div.summary-grid
+
+      // ----- ROW 1 -----
+      div.chart-box
+        canvas#expensesChart
+
+      div.info-box
+        div.Message
+          div.Title
+            h1.Banner Current budget:
+            p Your total income is: #{totalIncome} SEK
+            p You have spent #{totalExpenses} SEK this month.
+          if disposable >= 0
+            p.Details Money left to Invest / Spend: #{disposable} SEK
+          else
+            p.Details You spend #{Math.abs(disposable)} SEK more than your income.
+
+      // ----- ROW 2 -----
+      div.info-box
+        h1 Pennies and Peas Advice Plan
+        div.Advice
+          h3 Advice
+          ul
+            each advice in adviceList
+              li!= advice.message
+
+      div.chart-box
+        canvas#budgetChart
+
+    // 👇 Scripts ska ligga kvar
+    script.
+      const categories = !{JSON.stringify(categories)};
+      const numbers = !{JSON.stringify(numbers)};
+      const ctx = document.getElementById('expensesChart');
+
+      new Chart(ctx, {
+        type: 'pie',
+        data: {
+          labels: categories,
+          datasets: [{
+            data: numbers,
+            borderWidth: 1,
+            backgroundColor: ["#e8c2f4", "#affeb8", "#e2e063", "#0759a0", "#539bcf", "#B10DC9", "#d3d19f", "#053360", "#6adada", "#5fc38a", "#85144b", "#a16994", "#286549", "#222121", "#AAAAAA"]
+          }]
+        }
+      });
+
+    script.
+      const proposalCategories = !{JSON.stringify(proposalCategories)};
+      const proposalNumbers = !{JSON.stringify(proposalNumbers)};
+      const cty = document.getElementById('budgetChart');
+
+      new Chart(cty, {
+        type: 'pie',
+        data: {
+          labels: proposalCategories,
+          datasets: [{
+            data: proposalNumbers,
+            borderWidth: 1,
+            backgroundColor: ["#e8c2f4", "#affeb8", "#e2e063", "#0759a0", "#539bcf", "#B10DC9", "#d3d19f", "#053360", "#6adada", "#5fc38a", "#85144b", "#a16994", "#286549", "#222121", "#AAAAAA"]
+          }]
+        }
+      });
+
+
+    //- div
+    //-   canvas#expensesChart
+
+    //-   script.
+    //-       const categories = !{JSON.stringify(categories)};
+    //-       const numbers = !{JSON.stringify(numbers)};
+          
+    //-       const ctx = document.getElementById('expensesChart');
+
+    //-       new Chart(ctx, {
+    //-           type: 'pie',
+    //-           data: {
+    //-           labels: categories,
+    //-           datasets: [{
+    //-               data: numbers,
+    //-               borderWidth: 1,
+    //-               backgroundColor: ["#e8c2f4", "#affeb8", "#e2e063", "#0759a0", "#539bcf", "#B10DC9", "#d3d19f", "#053360", "#6adada", "#5fc38a", "#85144b", "#a16994", "#286549", "#222121", "#AAAAAA"]
+    //-           }]
+    //-           },
+    //-       });
+      
+    //- div.Advice
+    //-   h3 Advice
+    //-     ul
+    //-       each advice in adviceList
+    //-         li!= advice.message
+
+
+    //- div
+    //-   canvas#budgetChart
+
+    //-   script.
+    //-       const proposalCategories = !{JSON.stringify(proposalCategories)};
+    //-       const proposalNumbers = !{JSON.stringify(proposalNumbers)};
+          
+    //-       const cty = document.getElementById('budgetChart');
+
+    //-       new Chart(cty, {
+    //-           type: 'pie',
+    //-           data: {
+    //-           labels: proposalCategories,
+    //-           datasets: [{
+    //-               data: proposalNumbers,
+    //-               borderWidth: 1,
+    //-               backgroundColor: ["#e8c2f4", "#affeb8", "#e2e063", "#0759a0", "#539bcf", "#B10DC9", "#d3d19f", "#053360", "#6adada", "#5fc38a", "#85144b", "#a16994", "#286549", "#222121", "#AAAAAA"]
+    //-           }]
+    //-           },
+    //-       });
+
+ 
+
+

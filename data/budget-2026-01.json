@@ -1,0 +1,82 @@
+{
+  "incomes": [
+    {
+      "id": 1770724017629.904,
+      "source": "salary",
+      "amount": 16000
+    },
+    {
+      "id": 1770724017629.0825,
+      "source": "benefits",
+      "amount": 1700
+    },
+    {
+      "id": 1770724017629.8586,
+      "source": "other",
+      "amount": 1000
+    }
+  ],
+  "expenses": [
+    {
+      "id": 1770724532759.8845,
+      "category": "housing",
+      "amount": 8000
+    },
+    {
+      "id": 1770724532759.3057,
+      "category": "loans",
+      "amount": 3000
+    },
+    {
+      "id": 1770724532759.3176,
+      "category": "utilities",
+      "amount": 3000
+    },
+    {
+      "id": 1770724532759.8318,
+      "category": "insurance",
+      "amount": 1000
+    },
+    {
+      "id": 1770724532759.8867,
+      "category": "transportation",
+      "amount": 1200
+    },
+    {
+      "id": 1770724532759.4243,
+      "category": "groceries",
+      "amount": 2200
+    },
+    {
+      "id": 1770724532759.0642,
+      "category": "clothing",
+      "amount": 800
+    },
+    {
+      "id": 1770724532759.412,
+      "category": "media",
+      "amount": 300
+    },
+    {
+      "id": 1770724532759.4595,
+      "category": "hobbies",
+      "amount": 500
+    },
+    {
+      "id": 1770724532759.0295,
+      "category": "retirement",
+      "amount": 200
+    },
+    {
+      "id": 1770724532759.1858,
+      "category": "buffer",
+      "amount": 900
+    },
+    {
+      "id": 1770724532759.7693,
+      "category": "other",
+      "amount": 100
+    }
+  ],
+  "created": false
+}

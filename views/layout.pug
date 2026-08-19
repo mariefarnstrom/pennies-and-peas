@@ -1,0 +1,48 @@
+block variables
+doctype html
+html
+  head
+    meta(charset="utf-8")
+    link(rel="shortcut icon", href="/favicon.ico")
+    meta(name="viewport", content="width=device-width, initial-scale=1, shrink-to-fit=no")
+    meta(name="theme-color", content="#000000")
+    title #{title}  Pennies and Peas
+    link(rel="preconnect" href="https://fonts.googleapis.com")
+    link(rel="preconnect" href="https://fonts.gstatic.com" crossorigin)
+    link(href="https://fonts.googleapis.com/css2?family=Tangerine:wght@400;700&display=swap" rel="stylesheet")
+
+    link(rel="stylesheet", href="/css/style.css")
+    
+
+  body
+    header.hero   
+      a.home-link(href="/")
+        h1.app-title Pennies And Peas
+
+    button.toggle-btn 
+      svg(viewBox="0 0 24 24")
+        circle(cx="12" cy="12" r="10" fill="#B87333")
+        text(
+          x="12"
+          y="16"
+          text-anchor="middle"
+          font-size="9"
+          fill="white"
+        ) P
+
+
+    aside.budget-panel 
+      h2 Budget Book
+      if months && months.length 
+        ul 
+          each m in months 
+            li 
+              a(href=`/summary/${m.year}/${m.month}`) 
+                | #{m.year}-#{m.month}
+      else 
+        p No months saved yet 
+
+    div#root
+      block layout-content
+  
+    script(src="/js/budgetPanel.js")
