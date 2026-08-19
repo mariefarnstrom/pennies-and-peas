@@ -24,7 +24,7 @@ A simple personal budget app that lets users track incomes, expenses, and saving
 
     Open your browser at http://localhost:3000
 
-Usage
+## Usage
 Enter your incomes and expenses in the forms on the main page
 
 Submit to see:
@@ -35,12 +35,12 @@ Budget proposal for your income level
 
 Advice for overspending categories
 
-Data Storage
+## Data Storage
 Monthly budgets are saved as JSON files in the data folder
 
 Format: budget-YYYY-MM.json
 
-Tech Stack
+## Tech Stack
 Node.js, Express.js
 
 Pug templates
