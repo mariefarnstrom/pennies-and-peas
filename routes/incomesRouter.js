@@ -5,7 +5,7 @@ const router = express.Router();
 
 router.post('/', (req, res, next) => {
   try {
-    const allIncomes = req.body.incomes;
+    const allIncomes = req.body.incomes ?? {};
 
     // Get current year and month to store data per month
     const now = new Date();
@@ -16,7 +16,7 @@ router.post('/', (req, res, next) => {
     
     for (const key in allIncomes) {
       const amount = Number(allIncomes[key]);
-      if (!isNaN(amount)) {
+      if (Number.isFinite(amount) && amount >= 0) {
         updates.push({
           source: key,
           amount
