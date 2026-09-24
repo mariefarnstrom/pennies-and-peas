@@ -63,7 +63,7 @@ function saveMonth(year, month, data) {
     expenses: data.expenses
   };
 
-  fs.writeFileSync(filePath, JSON.stringify(data, null, 2));
+  fs.writeFileSync(filePath, JSON.stringify(cleanData, null, 2));
 }
 
 // Add expenses
